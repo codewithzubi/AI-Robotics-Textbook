@@ -1,0 +1,102 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #00c8ff;
+  --ifm-color-primary-dark: #00b2e0;
+  --ifm-color-primary-darker: #00a8d6;
+  --ifm-color-primary-darkest: #008ab8;
+  --ifm-color-primary-light: #1ad2ff;
+  --ifm-color-primary-lighter: #2eccff;
+  --ifm-color-primary-lightest: #4fd9ff;
+  --ifm-color-secondary: #0ff;
+  --ifm-background-color: #0f0c29;
+  --ifm-background-surface-color: #1a1a2e;
+  --ifm-color-emphasis-0: #ffffff;
+  --ifm-color-emphasis-100: #f5f6f7;
+  --ifm-color-emphasis-200: #ebedf0;
+  --ifm-color-emphasis-300: #dadde1;
+  --ifm-color-emphasis-400: #ccd0d5;
+  --ifm-color-emphasis-500: #bec3c9;
+  --ifm-color-emphasis-600: #a0a5ab;
+  --ifm-color-emphasis-700: #828991;
+  --ifm-color-emphasis-800: #616770;
+  --ifm-color-emphasis-900: #40444a;
+  --ifm-color-content: #ffffff;
+  --ifm-color-content-secondary: #dadde1;
+  --ifm-navbar-link-color: #ffffff;
+  --ifm-navbar-link-hover-color: #0ff;
+  --ifm-footer-link-color: #ffffff;
+  --ifm-footer-link-hover-color: #0ff;
+  --ifm-code-color: #ffffff;
+  --ifm-code-background: rgba(0, 0, 0, 0.3);
+  --ifm-pre-background: #1a1a2e;
+  --ifm-menu-color: #ffffff;
+  --ifm-menu-color-active: #0ff;
+  --ifm-menu-link-sublist-color: #0ff;
+  --ifm-breadcrumb-color: #ffffff;
+  --ifm-breadcrumb-color-active: #0ff;
+  --ifm-heading-color: #ffffff;
+  --ifm-link-color: #00c8ff;
+  --ifm-link-hover-color: #0ff;
+  --ifm-toc-border-color: #303846;
+  --ifm-global-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ifm-global-shadow-top: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ifm-global-shadow-bottom: 0 -1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 255, 255, 0.1);
+  --ifm-navbar-background-color: #1a1a2e;
+  --ifm-footer-background-color: #1a1a2e;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #00c8ff;
+  --ifm-color-primary-dark: #00b2e0;
+  --ifm-color-primary-darker: #00a8d6;
+  --ifm-color-primary-darkest: #008ab8;
+  --ifm-color-primary-light: #1ad2ff;
+  --ifm-color-primary-lighter: #2eccff;
+  --ifm-color-primary-lightest: #4fd9ff;
+  --ifm-color-secondary: #0ff;
+  --ifm-background-color: #0f0c29;
+  --ifm-background-surface-color: #1a1a2e;
+  --ifm-color-emphasis-0: #ffffff;
+  --ifm-color-emphasis-100: #f5f6f7;
+  --ifm-color-emphasis-200: #ebedf0;
+  --ifm-color-emphasis-300: #dadde1;
+  --ifm-color-emphasis-400: #ccd0d5;
+  --ifm-color-emphasis-500: #bec3c9;
+  --ifm-color-emphasis-600: #a0a5ab;
+  --ifm-color-emphasis-700: #828991;
+  --ifm-color-emphasis-800: #616770;
+  --ifm-color-emphasis-900: #40444a;
+  --ifm-color-content: #ffffff;
+  --ifm-color-content-secondary: #dadde1;
+  --ifm-navbar-link-color: #ffffff;
+  --ifm-navbar-link-hover-color: #0ff;
+  --ifm-footer-link-color: #ffffff;
+  --ifm-footer-link-hover-color: #0ff;
+  --ifm-code-color: #ffffff;
+  --ifm-code-background: rgba(0, 0, 0, 0.3);
+  --ifm-pre-background: #1a1a2e;
+  --ifm-menu-color: #ffffff;
+  --ifm-menu-color-active: #0ff;
+  --ifm-menu-link-sublist-color: #0ff;
+  --ifm-breadcrumb-color: #ffffff;
+  --ifm-breadcrumb-color-active: #0ff;
+  --ifm-heading-color: #ffffff;
+  --ifm-link-color: #00c8ff;
+  --ifm-link-hover-color: #0ff;
+  --ifm-toc-border-color: #303846;
+  --ifm-global-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ifm-global-shadow-top: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ifm-global-shadow-bottom: 0 -1px 2px 0 rgba(0, 0, 0, 0.05);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 255, 255, 0.2);
+  --ifm-navbar-background-color: #1a1a2e;
+  --ifm-footer-background-color: #1a1a2e;
+}
