@@ -1,0 +1,51 @@
+.aiEnhancedContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 1rem;
+}
+
+.aiSidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 400px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  border-left: 1px solid #dee2e6;
+  padding: 1rem;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.aiInterfaceContainer {
+  position: sticky;
+  top: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .aiSidebar {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .aiEnhancedContainer {
+    flex-direction: column;
+  }
+
+  .aiSidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-left: none;
+    border-top: 1px solid #dee2e6;
+    margin-top: 1rem;
+  }
+}

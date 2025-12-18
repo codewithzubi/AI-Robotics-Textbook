@@ -1,0 +1,231 @@
+# API Contract: Embeddings Pipeline Service
+
+## Overview
+This document defines the API contract for the embeddings pipeline service that processes book content and stores embeddings in Qdrant.
+
+## Base URL
+```
+http://localhost:8000/api/v1
+```
+
+## Endpoints
+
+### 1. Extract Content from URLs
+
+#### GET `/extract-content`
+Extracts text content from provided URLs or discovers content from the textbook base URL.
+
+**Query Parameters:**
+- `urls` (optional, array[string]): Specific URLs to extract content from
+- `base_url` (optional, string): Base URL to discover content from (default: textbook URL)
+- `sitemap_url` (optional, string): Sitemap URL to discover all content URLs (e.g., https://ai-robotics-textbook-ten.vercel.app/sitemap.xml)
+
+**Response (200 OK):**
+```json
+{
+  "status": "success",
+  "data": [
+    {
+      "url": "string",
+      "title": "string",
+      "content": "string",
+      "module": "string",
+      "chapter": "string",
+      "extracted_at": "datetime"
+    }
+  ],
+  "total_count": "integer"
+}
+```
+
+**Error Response (400 Bad Request):**
+```json
+{
+  "status": "error",
+  "message": "string",
+  "error_code": "string"
+}
+```
+
+### 2. Chunk Text Content
+
+#### POST `/chunk-text`
+Splits large text content into smaller, semantically meaningful chunks.
+
+**Request Body:**
+```json
+{
+  "content": "string",
+  "source_url": "string",
+  "module": "string",
+  "chapter": "string",
+  "max_chunk_size": "integer (default: 1000)",
+  "overlap_size": "integer (default: 100)"
+}
+```
+
+**Response (200 OK):**
+```json
+{
+  "status": "success",
+  "data": [
+    {
+      "id": "string",
+      "content": "string",
+      "source_url": "string",
+      "module": "string",
+      "chapter": "string",
+      "chunk_index": "integer",
+      "metadata": {}
+    }
+  ],
+  "total_chunks": "integer"
+}
+```
+
+### 3. Generate Embeddings
+
+#### POST `/embeddings`
+Generates vector embeddings for text chunks using Cohere API.
+
+**Request Body:**
+```json
+{
+  "chunks": [
+    {
+      "id": "string",
+      "content": "string"
+    }
+  ],
+  "model": "string (default: embed-english-v3.0)"
+}
+```
+
+**Response (200 OK):**
+```json
+{
+  "status": "success",
+  "data": [
+    {
+      "id": "string",
+      "chunk_id": "string",
+      "vector": "array[float]",
+      "model": "string",
+      "created_at": "datetime"
+    }
+  ],
+  "model_used": "string"
+}
+```
+
+### 4. Qdrant Operations
+
+#### POST `/qdrant/create-collection`
+Creates a Qdrant collection for storing embeddings.
+
+**Request Body:**
+```json
+{
+  "collection_name": "string (default: rag_embeddings)",
+  "vector_size": "integer (default: 1024)",
+  "distance": "string (default: Cosine)"
+}
+```
+
+**Response (200 OK):**
+```json
+{
+  "status": "success",
+  "collection_name": "string",
+  "created_at": "datetime"
+}
+```
+
+#### POST `/qdrant/save-embeddings`
+Saves embeddings to Qdrant collection.
+
+**Request Body:**
+```json
+{
+  "embeddings": [
+    {
+      "id": "string",
+      "vector": "array[float]",
+      "payload": {
+        "content": "string",
+        "source_url": "string",
+        "module": "string",
+        "chapter": "string",
+        "chunk_index": "integer"
+      }
+    }
+  ],
+  "collection_name": "string (default: rag_embeddings)"
+}
+```
+
+**Response (200 OK):**
+```json
+{
+  "status": "success",
+  "saved_count": "integer",
+  "collection_name": "string"
+}
+```
+
+### 5. Pipeline Execution
+
+#### POST `/pipeline/run`
+Executes the complete pipeline: URL extraction → Text extraction → Chunking → Embedding → Storage.
+
+**Request Body:**
+```json
+{
+  "base_url": "string (default: textbook URL)",
+  "collection_name": "string (default: rag_embeddings)",
+  "model": "string (default: embed-english-v3.0)"
+}
+```
+
+**Response (200 OK):**
+```json
+{
+  "status": "success",
+  "summary": {
+    "urls_processed": "integer",
+    "chunks_created": "integer",
+    "embeddings_generated": "integer",
+    "embeddings_stored": "integer",
+    "start_time": "datetime",
+    "end_time": "datetime",
+    "duration_seconds": "float"
+  }
+}
+```
+
+## Error Codes
+
+| Code | Description |
+|------|-------------|
+| EMB_001 | Invalid URL provided |
+| EMB_002 | Content extraction failed |
+| EMB_003 | Text chunking failed |
+| EMB_004 | Embedding generation failed |
+| EMB_005 | Qdrant operation failed |
+| EMB_006 | API rate limit exceeded |
+| EMB_007 | Invalid request parameters |
+
+## Common Headers
+
+All requests should include:
+```
+Content-Type: application/json
+Accept: application/json
+```
+
+## Authentication
+
+API endpoints requiring authentication should include:
+```
+Authorization: Bearer {API_TOKEN}
+```
