@@ -27,7 +27,7 @@ env/
 ENV/
 .venv/
 .env/
-.env.example/
+
 
 # IDE
 .vscode/
@@ -40,6 +40,7 @@ ENV/
 .env
 .env.local
 .env.*.local
+.env.example/
 
 # Logs
 *.log
