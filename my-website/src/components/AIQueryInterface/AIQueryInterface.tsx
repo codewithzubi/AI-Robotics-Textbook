@@ -15,7 +15,7 @@ const AIQueryInterface = () => {
 
   // Get the API base URL - using a default for local development
   // In production, this could be configured differently
-  const API_BASE_URL = 'http://localhost:8000/api/v1/agent';
+  const API_BASE_URL = 'https://zubair0077-ai-robotics-text-book.hf.space/api/v1/agent';
 
   // Function to get selected text from the page
   const getSelectedText = (): string => {
