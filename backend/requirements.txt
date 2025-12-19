@@ -1,6 +1,6 @@
 requests==2.31.0
 cohere==4.9.0
-qdrant-client==1.9.2
+qdrant-client==1.11.1
 beautifulsoup4==4.12.2
 python-dotenv==1.0.0
 pytest==8.0.0

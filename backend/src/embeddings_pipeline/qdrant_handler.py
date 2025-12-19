@@ -28,11 +28,22 @@ def initialize_qdrant_client() -> Optional[QdrantClient]:
 
         if settings.QDRANT_API_KEY and not is_local:
             # Cloud instance with API key
-            client = QdrantClient(
-                url=settings.QDRANT_URL,
-                api_key=settings.QDRANT_API_KEY,
-                timeout=30  # Increased timeout for cloud operations
-            )
+            # Parse URL to extract host and port if needed
+            from urllib.parse import urlparse
+            parsed_url = urlparse(settings.QDRANT_URL)
+            if parsed_url.scheme and parsed_url.netloc:
+                client = QdrantClient(
+                    url=settings.QDRANT_URL,
+                    api_key=settings.QDRANT_API_KEY,
+                    timeout=30  # Increased timeout for cloud operations
+                )
+            else:
+                # Handle case where URL is just the host
+                client = QdrantClient(
+                    url=settings.QDRANT_URL,
+                    api_key=settings.QDRANT_API_KEY,
+                    timeout=30
+                )
         elif is_local:
             # Local instance
             client = QdrantClient(
