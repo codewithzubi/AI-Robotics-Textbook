@@ -1,0 +1,168 @@
+/* Hero Section Styles */
+.hero {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #1a202c;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
+}
+
+.buttonContainer {
+  margin-top: 1rem;
+}
+
+.startButton {
+  background-color: #00d4ff !important;
+  border: none !important;
+  color: white !important;
+  padding: 1rem 2rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3) !important;
+}
+
+.startButton:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4) !important;
+  background-color: #00c0e6 !important;
+}
+
+.illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.robotImage {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.robotSvg {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1.5rem;
+    min-height: auto;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .content {
+    align-items: center;
+  }
+
+  .title {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .buttonContainer {
+    margin-top: 0.5rem;
+  }
+
+  .robotImage {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet responsiveness */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero {
+    padding: 3.5rem 2rem;
+  }
+
+  .container {
+    gap: 3rem;
+  }
+
+  .robotImage {
+    max-width: 350px;
+  }
+}
+
+/* Additional decorative elements */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at bottom left, rgba(74, 85, 104, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animation for the button hover effect */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.startButton {
+  animation: float 3s ease-in-out infinite;
+}

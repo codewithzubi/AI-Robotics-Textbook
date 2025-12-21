@@ -177,6 +177,14 @@ class ContentGrounding:
         Returns:
             AgentResponse: Potentially modified response that adheres to content restrictions
         """
+        # Check if no content was retrieved (empty list) - enforce textbook-only rule
+        if not retrieved_content or all(not content.strip() for content in retrieved_content):
+            # Override the response to indicate no textbook content was found
+            response.answer = "This information is not covered in the textbook."
+            response.confidence_score = 0.0  # Set low confidence since no context was available
+            response.sources = []  # No sources when no context found
+            return response
+
         # Validate the response
         is_valid, validation_details = self.validate_response_against_content(
             response.query, response.answer, retrieved_content

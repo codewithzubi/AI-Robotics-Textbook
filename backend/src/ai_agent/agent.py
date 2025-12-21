@@ -118,7 +118,7 @@ class AIAgent:
             str: Formatted context string
         """
         if not retrieval_result.retrieved_chunks:
-            return "No relevant context found in the textbook."
+            return "No relevant context found in the textbook. This information is not covered in the textbook."
 
         context_parts = ["Relevant textbook content:"]
         for i, chunk in enumerate(retrieval_result.retrieved_chunks):
@@ -139,7 +139,14 @@ class AIAgent:
         Returns:
             str: Complete prompt for the AI agent
         """
-        prompt = f"""Context: {context}
+        if "No relevant context found in the textbook" in context:
+            prompt = f"""Context: {context}
+
+Question: {query}
+
+Since no relevant context from the textbook was found, please respond with: "This information is not covered in the textbook." Do not attempt to answer based on external knowledge."""
+        else:
+            prompt = f"""Context: {context}
 
 Question: {query}
 
