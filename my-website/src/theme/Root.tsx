@@ -1,13 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { SearchProvider } from '../contexts/SearchContext';
+import { UserProfileProvider } from '../contexts/UserProfileContext';
 import AIFloatingButton from '../components/AIFloatingButton/AIFloatingButton';
+import GlobalSearchModal from '../components/GlobalSearchModal/GlobalSearchModal';
 
 // Default theme wrapper
-const Root = ({ children }) => {
+const Root: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <>
-      {children}
-      <AIFloatingButton />
-    </>
+    <UserProfileProvider>
+      <SearchProvider>
+        {children}
+        <GlobalSearchModal />
+        <AIFloatingButton />
+      </SearchProvider>
+    </UserProfileProvider>
   );
 };
 

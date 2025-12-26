@@ -1,5 +1,5 @@
 .aiQueryContainer {
-  max-width: 800px;
+  max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
@@ -11,12 +11,14 @@
 
 .aiQueryHeader h3 {
   margin: 0 0 0.5rem 0;
-  color: #111827;
-  font-size: 1.5rem;
+  color: var(--ifm-heading-color);
+  font-size: 1.75rem;
+  font-weight: 700;
 }
 
 .aiQueryHeader p {
   margin: 0;
-  color: #6b7280;
-  font-size: 1rem;
+  color: var(--ifm-color-content-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
 }

@@ -4,10 +4,10 @@
   height: 600px;
   max-width: 800px;
   margin: 0 auto;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 8px;
   overflow: hidden;
-  background-color: white;
+  background-color: var(--ifm-background-surface-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -17,19 +17,19 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #f9fafb;
-  border-bottom: 1px solid #e5e7eb;
+  background-color: var(--ifm-background-color);
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
 }
 
 .chatHeader h3 {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #111827;
+  color: var(--ifm-heading-color);
 }
 
 .clearChatButton {
-  background-color: #3b82f6;
+  background-color: var(--ifm-color-primary);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -40,7 +40,7 @@
 }
 
 .clearChatButton:hover {
-  background-color: #2563eb;
+  background-color: var(--ifm-color-primary-dark);
 }
 
 .messagesContainer {
@@ -54,7 +54,7 @@
 .welcomeMessage {
   text-align: center;
   padding: 2rem;
-  color: #6b7280;
+  color: var(--ifm-color-content-secondary);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -65,13 +65,13 @@
 .welcomeMessage h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1.5rem;
-  color: #374151;
+  color: var(--ifm-heading-color);
 }
 
 .welcomeMessage p {
   margin: 0;
   font-size: 1rem;
-  color: #6b7280;
+  color: var(--ifm-color-content-secondary);
 }
 
 .messagesList {
@@ -108,9 +108,9 @@
 }
 
 .message.assistant .messageContent {
-  background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
-  color: #374151;
+  background-color: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-content);
 }
 
 .messageHeader {
@@ -153,14 +153,14 @@
 .sourcesSection {
   margin-top: 1rem;
   padding-top: 0.75rem;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
 }
 
 .sourcesSection h5 {
   margin: 0 0 0.5rem 0;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #374151;
+  color: var(--ifm-heading-color);
 }
 
 .sourcesSection ul {
@@ -171,7 +171,7 @@
 
 .sourcesSection li {
   margin-bottom: 0.25rem;
-  color: #4b5563;
+  color: var(--ifm-color-content-secondary);
 }
 
 .metadata {
@@ -179,19 +179,19 @@
   gap: 1rem;
   margin-top: 0.75rem;
   font-size: 0.75rem;
-  color: #6b7280;
+  color: var(--ifm-color-content-secondary);
 }
 
 .confidenceScore {
-  background-color: #dbeafe;
-  color: #1d4ed8;
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-primary);
   padding: 0.125rem 0.5rem;
   border-radius: 9999px;
 }
 
 .processingTime {
-  background-color: #f3f4f6;
-  color: #4b5563;
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content-secondary);
   padding: 0.125rem 0.5rem;
   border-radius: 9999px;
 }
@@ -256,15 +256,15 @@
 .inputContainer {
   display: flex;
   padding: 1rem;
-  background-color: #f9fafb;
-  border-top: 1px solid #e5e7eb;
+  background-color: var(--ifm-background-color);
+  border-top: 1px solid var(--ifm-color-emphasis-300);
   gap: 0.5rem;
 }
 
 .textInput {
   flex: 1;
   padding: 0.75rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 8px;
   resize: none;
   font-family: inherit;
@@ -274,21 +274,23 @@
   overflow-y: auto;
   outline: none;
   transition: border-color 0.2s;
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-color-content);
 }
 
 .textInput:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: var(--ifm-color-primary);
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .textInput:disabled {
-  background-color: #f3f4f6;
+  background-color: var(--ifm-color-emphasis-200);
   cursor: not-allowed;
 }
 
 .sendButton {
-  background-color: #3b82f6;
+  background-color: var(--ifm-color-primary);
   color: white;
   border: none;
   padding: 0.75rem 1.25rem;
@@ -300,11 +302,11 @@
 }
 
 .sendButton:hover:not(:disabled) {
-  background-color: #2563eb;
+  background-color: var(--ifm-color-primary-dark);
 }
 
 .sendButton:disabled {
-  background-color: #9ca3af;
+  background-color: var(--ifm-color-emphasis-400);
   cursor: not-allowed;
 }
 

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, KeyboardEvent } from 'react';
+import React, { useState, useRef, useEffect, KeyboardEvent, useCallback } from 'react';
 import styles from './ChatInterface.module.css';
 
 interface Message {
@@ -13,15 +13,30 @@ interface Message {
 
 interface ChatInterfaceProps {
   apiUrl?: string;
+  searchQuery?: string;
 }
 
-const ChatInterface: React.FC<ChatInterfaceProps> = ({ apiUrl = 'https://zubair0077-ai-robotics-text-book.hf.space/api/v1/agent' }) => {
+const ChatInterface: React.FC<ChatInterfaceProps> = ({
+  apiUrl = 'https://zubair0077-ai-robotics-text-book.hf.space/api/v1/agent',
+  searchQuery
+}) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  // Handle search queries passed from parent component
+  useEffect(() => {
+    if (searchQuery && searchQuery.trim()) {
+      setInputValue(searchQuery);
+      // Auto-submit if we have a search query
+      setTimeout(() => {
+        handleSubmit(new Event('submit') as unknown as React.FormEvent);
+      }, 100);
+    }
+  }, [searchQuery]);
 
   // Auto-scroll to bottom when messages change
   useEffect(() => {

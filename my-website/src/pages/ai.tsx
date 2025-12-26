@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import AIQueryInterface from '../components/AIQueryInterface/AIQueryInterface';
 
-export default function AIPage(): React.Component {
+const AIPage: React.FC = () => {
   return (
     <Layout title="AI Assistant" description="Ask questions about the AI Robotics textbook">
       <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
@@ -14,3 +14,5 @@ export default function AIPage(): React.Component {
     </Layout>
   );
 }
+
+export default AIPage;

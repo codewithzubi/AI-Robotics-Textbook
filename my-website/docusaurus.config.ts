@@ -70,11 +70,14 @@ const config: Config = {
     ],
   ],
 
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
-      respectPrefersColorScheme: true,
+      defaultMode: 'dark',
+      disableSwitch: false, // Enable theme switching
+      respectPrefersColorScheme: false,
     },
     navbar: {
       title: 'Physical AI & Humanoid Robotics',
@@ -90,8 +93,11 @@ const config: Config = {
           label: 'Textbook',
         },
         {
-          href: 'https://github.com/your-organization/physical-ai-textbook',
-          label: 'GitHub',
+          type: 'custom-SearchNavbarItem',
+          position: 'right',
+        },
+        {
+          type: 'custom-UserProfile',
           position: 'right',
         },
       ],
@@ -114,6 +120,10 @@ const config: Config = {
               label: 'Digital Twin Simulation',
               to: '/docs/modules/module-2-digital-twin-simulation',
             },
+            {
+              label: 'AI Planning & Control',
+              to: '/docs/modules/module-3-ai-planning-control',
+            },
           ],
         },
         {
@@ -131,19 +141,48 @@ const config: Config = {
               label: 'NVIDIA Isaac',
               href: 'https://developer.nvidia.com/isaac',
             },
+            {
+              label: 'OpenAI Robotics',
+              href: 'https://openai.com/research/robotics',
+            },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            {
+              label: 'GitHub',
+              href: 'https://github.com/your-organization/physical-ai-textbook',
+            },
+            {
+              label: 'Discord',
+              href: 'https://discord.gg/robotics',
+            },
+            {
+              label: 'Stack Overflow',
+              href: 'https://stackoverflow.com/questions/tagged/robotics',
+            },
+            {
+              label: 'Research Papers',
+              href: 'https://scholar.google.com/scholar?q=robotics+AI',
+            },
           ],
         },
         {
           title: 'More',
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/your-organization/physical-ai-textbook',
+              label: 'Blog',
+              to: '/blog',
+            },
+            {
+              label: 'Contact',
+              href: 'mailto:contact@physicalai-textbook.com',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Textbook. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Textbook. All rights reserved.`,
     },
     prism: {
       theme: prismThemes.github,
