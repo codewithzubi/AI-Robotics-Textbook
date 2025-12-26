@@ -122,7 +122,7 @@ const config: Config = {
             },
             {
               label: 'AI Planning & Control',
-              to: '/docs/modules/module-3-ai-planning-control',
+              to: '/docs/modules/module-3-nvidia-isaac-ai',
             },
           ],
         },

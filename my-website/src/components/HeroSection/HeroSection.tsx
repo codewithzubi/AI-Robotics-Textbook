@@ -26,7 +26,7 @@ const HeroSection: React.FC = () => {
             </Link>
             <Link
               className={clsx('button button--secondary button--lg', styles.secondaryButton)}
-              to="/docs/getting-started">
+              to="/docs/intro">
               Getting Started
             </Link>
           </div>
